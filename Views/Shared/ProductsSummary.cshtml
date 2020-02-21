@@ -1,0 +1,29 @@
+﻿@model Product
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+</head>
+<body>
+    <div class="card" style="width: 25%;">
+        <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3>@Model.Name</h3>
+            <p class="card-text">@Model.Price.ToString("c")</p>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <button onclick="window.location.href = '/ShoppingCart/AddToShoppingCart/@Model.ProductId';" type="button" class="btn btn-outline-dark">Add To Cart</button>
+            }
+            else
+            {
+                <button onclick="window.location.href = '/Account/Login';" type="button" class="btn btn-outline-dark">Add To Cart</button>
+            }
+        </div>
+    </div>
+</body>
+</html>

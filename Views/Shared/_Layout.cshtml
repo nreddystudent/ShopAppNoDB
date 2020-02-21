@@ -1,0 +1,42 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Shopify</title>
+
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light" style="background-color: white;">
+        <a class="navbar-brand" href="/">
+            <img src="https://www.logolynx.com/images/logolynx/6c/6c76660a86692f78706942b4d5c83b89.png" width="200" height="140" class="d-inline-block align-middle" alt="">
+            Shopify
+        </a>
+        <ul class="nav-middle">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Product/List">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Product/List/Tops">Tops</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Product/List/Bottoms">Bottoms</a>
+            </li>
+        </ul>    
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/ShoppingCart">@await Component.InvokeAsync("ShoppingCartSummary")</a>
+            </li>
+            @await Html.PartialAsync("LoginPartial")
+        </ul>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+</body>
+</html>

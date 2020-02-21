@@ -1,0 +1,46 @@
+﻿@model ShoppingCartViewModel
+    <html>
+    <head>
+        <link rel="stylesheet" href="~/Content/Style.css" />
+        <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    </head>
+
+    <body>
+        <h2><p class="font-weight-bold">Cart</p></h2>
+        <br />
+        <br />
+        <div class="row">
+            @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+            {
+                <div class="card" style="width: 33%;">
+                    <img src="@line.Product.ImageUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3>@line.Product.Name (@line.Amount)</h3>
+                        <p class="card-text">@line.Product.Price.ToString("c")</p>
+                        <p class="card-text">Total: @((line.Amount * line.Product.Price).ToString("c"))</p>
+                        <button onclick="window.location.href = '/ShoppingCart/RemoveFromShoppingCart/@line.Product.ProductId';" type="button" class="btn btn-outline-dark">Remove From Cart</button>
+                        <button onclick="window.location.href = '/ShoppingCart/AddOneToShoppingCart/@line.Product.ProductId';" type="button" class="btn btn-outline-success">+1</button>
+                        <button onclick="window.location.href = '/ShoppingCart/RemoveOneFromShoppingCart/@line.Product.ProductId';" type="button" class="btn btn-danger">-1</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        @if (Model.ShoppingCart.GetShoppingCartTotal() != 0)
+        {
+            <div class="alert alert-success" role="alert">
+                Grand Total: @Model.ShoppingCartTotal.ToString("c")
+            </div>
+            <button type="button" class="btn btn-outline-success" onclick="window.location.href = '/Order/Checkout';">Checkout</button>
+        }
+        else
+        {
+            <h4><p class="font-weight-light">Your cart is empty.</p></h4>
+        }
+        <br />
+        <br />
+    </body>
+    </html>

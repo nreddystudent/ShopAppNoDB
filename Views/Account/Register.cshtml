@@ -1,0 +1,87 @@
+﻿@model RegisterViewModel
+
+<br />
+<br />
+<h2><p class="font-weight-bold">Please fill in your details to register.</p></h2>
+<br />
+<br />
+<style>
+    input {
+        width: 100% !important;
+        padding: 12px 20px !important;
+        margin: 8px 0 !important;
+        display: inline-block !important;
+        border: 1px solid #ccc !important;
+        border-radius: 4px !important;
+        box-sizing: border-box !important;
+    }
+
+
+    .font-weight-light {
+        font-size: 20px !important;
+        font-weight: bold !important;
+    }
+</style>
+<form asp-controller="Account" asp-action="Register" method="post" role="form">
+    <div>
+        <p class="font-weight-light">First Name</p>
+            <input  type="text"  asp-for="Name" placeholder="Enter Your Name" />
+            <span asp-validation-for="Name"></span>
+    </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Last Name</p>
+            <input  type="text"  asp-for="Surname" placeholder="Enter Your Surname" />
+            <span asp-validation-for="Surname"></span>
+    </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Gender</p>
+        <div class="input-group mb-3">
+            <select class="custom-select" id="Gender" asp-for="Gender">
+                <option selected>Choose...</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="input-group-append">
+                <label class="input-group-text" for="Gender">Options</label>
+            </div>
+            <span asp-validation-for="Gender"></span>
+        </div>
+            
+    </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Phone Number</p>
+            <input  type="text"  asp-for="Number" placeholder="Enter Your Phone Number" />
+            <span asp-validation-for="Number"></span>
+    </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Email Address</p>
+            <input  type="text"  asp-for="Email" placeholder="Enter Your Email Address" />
+            <span asp-validation-for="Email"></span>
+    </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Username</p>
+            <input  type="text"  asp-for="UserName" placeholder="Enter An Username" />
+            <span asp-validation-for="UserName"></span>
+     </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Password</p>
+        <input  type="password"  asp-for="Password" placeholder="Enter Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <br />
+    <div>
+        <p class="font-weight-light">Confirm Password</p>
+        <input  type="password"  asp-for="ConfirmPassword" placeholder="Confirm Password" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <br />
+    <br />
+        <button class="btn btn-outline-success" type="submit">Register</button>     <button onclick="window.location.href = '/Account/Login';" type="button" class="btn btn-outline-dark">Login</button>
+</form>

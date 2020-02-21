@@ -1,0 +1,52 @@
+﻿@model HomeViewModel
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+</head>
+<body>
+    @await Html.PartialAsync("Carousel")
+    <h2><p class="font-weight-bold">Top Selling Products For the Week</p></h2>
+    <h4><p class="font-weight-light">Client Preferences</p></h4>
+    <br />
+    <br />
+    <div class="row">
+        @foreach (Product preferredProduct in Model.PreferredProducts)
+        {
+            @Html.Partial("ProductsSummary", preferredProduct)
+
+        }
+    </div>
+    <br />
+    <br />
+    <h2><p class="font-weight-bold">Shop</p></h2>
+    <div class="row">
+        <div class="card" style="width: 50%;">
+            <a href="/Product/List/Tops"><img src="https://mediacdn.livestory.io/v1/dolcegabbana/posts/r1000x600/5e297c2516a263000a98bd9c.jpg" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h3>Tops</h3>
+                <p class="card-text">Starting from R299,89</p>
+                <button onclick="window.location.href = '/Product/List/Tops';" type="button" class="btn btn-outline-dark">Shop Tops</button>
+            </div>
+        </div>
+        <div class="card" style="width: 50%;">
+            <a href="/Product/List/Bottoms"><img src="https://mediacdn.livestory.io/v1/dolcegabbana/posts/r1000x600/5e297cdcc3c864002cc3e863.jpg" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h3>Bottoms</h3>
+                <p class="card-text">Starting from R199,90</p>
+                <button onclick="window.location.href = '/Product/List/Bottoms';" type="button" class="btn btn-outline-dark">Shop Bottoms</button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+
+
+</html>
+

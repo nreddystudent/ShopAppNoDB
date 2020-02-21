@@ -1,0 +1,81 @@
+﻿<link rel="stylesheet" href="~/Content/Style.css" />
+<link rel="stylesheet" href="~/Content/bootstrap.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<style>
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .3s ease;
+        background-color: black;
+    }
+
+    .carousel-item:hover .overlay {
+        opacity: 0.6;
+    }
+
+    .text {
+        color: white;
+        font-size: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+</style>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="/Product/List"><img src="https://d2ls16jjuwnppu.cloudfront.net/wp-content/uploads/dolce-and-gabbana-woman-spring-summer-2020-tropical-rose-collection-banner-1440x810.jpg" class="d-block w-100" alt="..."></a>
+            <a href="/Product/List">
+                <div class="overlay">
+                    <div class="text">Shop</div>
+                </div>
+                </a>
+            </div>
+        <div class="carousel-item">
+            <a href="/Product/List/Tops"><img src="https://mediacdn.livestory.io/v1/dolcegabbana/posts/r1000x600/5e297cdcc3c864002cc3e865.jpg" class="d-block w-100" alt="..."></a>
+            <a href="/Product/List/Tops">
+                <div class="overlay">
+                    <div class="text">Tops</div>
+                </div>
+                </a>
+          </div>
+        <div class="carousel-item">
+            <a href="/Product/List/Bottoms"><img src="https://mediacdn.livestory.io/v1/dolcegabbana/posts/r1000x600/5e297a6ac3c864002cc3e855.jpg" class="d-block w-100" alt="..."></a>
+            <a href="/Product/List/Bottoms">
+                <div class="overlay">
+                    <div class="text">Bottoms</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<br />
+<br />

@@ -1,0 +1,130 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{ 
+    var user = await UserManager.GetUserAsync(User);
+}
+@model Order
+
+<br />
+<br />
+<h2><p class="font-weight-bold">Please fill in your personal details.</p></h2>
+<br />
+<br />
+<style>
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .font-weight-light {
+        font-size: 20px !important;
+        font-weight: bold !important;
+    }
+</style>
+<div>
+    <form asp-action="Checkout" method="post" role="form">
+        <div>
+            <p class="font-weight-light">First Name</p>
+            <div>
+                <input type="text" asp-for="FirstName" value="@user.Name">
+                <br />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <p class="font-weight-light">Last Name</p>
+            <div>
+                <input type="text" asp-for="LastName" value="@user.Surname">
+                <br />
+                <span asp-validation-for="LastName"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <p class="font-weight-light">PhoneNumber</p>
+            <div>
+                <input type="text" asp-for="PhoneNumber" value="@user.PhoneNumber">
+                <br />
+                <span asp-validation-for="PhoneNumber"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <p class="font-weight-light">Email</p>
+            <div>
+                <input type="text" asp-for="Email" value="@user.Email">
+                <br />
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <p class="font-weight-light">Address Line</p>
+            <div>
+                <input type="text" asp-for="AddressLine">
+                <br />
+                <span asp-validation-for="AddressLine"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <p class="font-weight-light">Zip Code</p>
+            <div>
+                <input type="text" asp-for="ZipCode">
+                <br />
+                <span asp-validation-for="ZipCode"></span>
+            </div>
+        </div>
+        <br />
+        <h2><p class="font-weight-bold">Please fill in your credit card details.</p></h2>
+        <br />
+        <div>
+            <p class="font-weight-light">Card Number</p>
+            <div>
+                <input type="text" asp-for="CardNumber">
+                <br />
+                <span asp-validation-for="CardNumber"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            <p class="font-weight-light">Card Expire Date</p>
+            <div>
+                <input asp-for="CardExpireDate" id="datefield" type="month" min="" value="">
+                <br />
+                <span asp-validation-for="CardExpireDate"></span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div>
+            <button class="btn btn-outline-success" type="submit">Order</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1;
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+
+today = yyyy+'-'+mm;
+    document.getElementById("datefield").setAttribute("min", today);
+    document.getElementById("datefield").setAttribute("value", today);
+</script>
